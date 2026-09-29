@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>us</title>
+
+<style>
+
+/* ==================================================
+   إعدادات عامة
+================================================== */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+/* ==================================================
+   الصفحة الأولى
+================================================== */
+
+#page1 {
+    font-family: Arial, sans-serif;
+    color: #ffffff;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    min-height: 100vh;
+    width: 100%;
+
+    /* إضافة الصورة 67 كخلفية للصفحة بدلاً من المربع */
+    background: url('67.jpg') no-repeat center center/cover;
+}
+
+
+.container {
+    background: transparent;
+
+    padding: 25px;
+
+    border-radius: 15px;
+
+    box-shadow: none;
+
+    text-align: center;
+
+    max-width: 450px;
+    width: 90%;
+}
+
+
+/* ==================================================
+   معرض الصور
+================================================== */
+
+.slider-wrapper {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 15px;
+}
+
+
+.slider-wrapper img {
+    width: 100%;
+    height: 400px;
+
+    object-fit: cover;
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 4px 10px rgba(0,0,0,0.3);
+}
+
+
+/* الأسهم */
+
+.arrow-btn {
+    position: absolute;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    background: rgba(0,0,0,0.6);
+
+    color: #fff;
+
+    border: none;
+
+    font-size: 24px;
+
+    width: 45px;
+    height: 45px;
+
+    cursor: pointer;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    transition: 0.3s;
+}
+
+
+.arrow-btn:hover {
+    background: rgba(255,255,255,0.3);
+}
+
+
+.prev-btn {
+    right: 10px;
+}
+
+
+.next-btn {
+    left: 10px;
+}
+
+
+/* ==================================================
+   الأغنية والفيديو
+================================================== */
+
+.media-container {
+    margin-top: 15px;
+
+    width: 100%;
+}
+
+
+.media-container video,
+.media-container audio {
+    width: 100%;
+
+    border-radius: 8px;
+}
+
+
+/* ==================================================
+   كلتي كل يوم اريد وكل يوم اطور اكثر !!
+================================================== */
+
+.final-section {
+    display: none;
+
+    margin-top: 15px;
+
+    animation:
+        fadeIn 0.5s ease-in-out;
+}
+
+
+.next-page-btn {
+    display: inline-block;
+
+    margin-top: 12px;
+
+    padding: 12px 25px;
+
+    background-color: #007bff;
+
+    color: white;
+
+    border: none;
+
+    border-radius: 8px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+
+.next-page-btn:hover {
+    background-color: #0056b3;
+}
+
+
+@keyframes fadeIn {
+
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+
+/* ==================================================
+   الصفحة الثانية
+================================================== */
+
+#page2 {
+
+    display: none;
+
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    overflow: hidden;
+
+    background: #000;
+
+    font-family:
+        system-ui,
+        -apple-system,
+        "Segoe UI",
+        Roboto,
+        Arial,
+        sans-serif;
+}
+
+
+/* ==================================================
+   الكلمات المتحركة
+================================================== */
+
+#page2 .love {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    margin:
+        -225px
+        0
+        0
+        -225px;
+
+    --i: 1;
+}
+
+
+#page2 .love_word {
+
+    color: #ea80b0;
+
+    font-size: 1.4rem;
+
+    transform:
+        translateY(-100%)
+        rotateZ(-30deg);
+
+    text-shadow:
+        0 0 10px #fff;
+
+    letter-spacing: 2px;
+
+    white-space: nowrap;
+}
+
+
+#page2 .love_horizontal {
+
+    animation:
+        horizontal 10000ms
+        infinite
+        alternate
+        ease-in-out;
+
+    animation-delay:
+        calc(var(--i) * -300ms);
+}
+
+
+#page2 .love_vertical {
+
+    animation:
+        vertical 20000ms
+        infinite
+        linear;
+
+    animation-delay:
+        calc(var(--i) * -300ms);
+}
+
+
+/* ==================================================
+   حركة الكلمات
+================================================== */
+
+@keyframes horizontal {
+
+    from {
+        transform:
+            translateX(0px);
+    }
+
+    to {
+        transform:
+            translateX(450px);
+    }
+
+}
+
+
+@keyframes vertical {
+
+    0% {
+        transform:
+            translateY(180px);
+    }
+
+    10% {
+        transform:
+            translateY(45px);
+    }
+
+    15% {
+        transform:
+            translateY(4.5px);
+    }
+
+    18% {
+        transform:
+            translateY(0px);
+    }
+
+    20% {
+        transform:
+            translateY(4.5px);
+    }
+
+    22% {
+        transform:
+            translateY(34.61538px);
+    }
+
+    24% {
+        transform:
+            translateY(64.28571px);
+    }
+
+    25% {
+        transform:
+            translateY(112.5px);
+    }
+
+    26% {
+        transform:
+            translateY(64.28571px);
+    }
+
+    28% {
+        transform:
+            translateY(34.61538px);
+    }
+
+    30% {
+        transform:
+            translateY(4.5px);
+    }
+
+    32% {
+        transform:
+            translateY(0px);
+    }
+
+    35% {
+        transform:
+            translateY(4.5px);
+    }
+
+    40% {
+        transform:
+            translateY(45px);
+    }
+
+    50% {
+        transform:
+            translateY(180px);
+    }
+
+    71% {
+        transform:
+            translateY(428.57143px);
+    }
+
+    72.5% {
+        transform:
+            translateY(441.17647px);
+    }
+
+    75% {
+        transform:
+            translateY(450px);
+    }
+
+    77.5% {
+        transform:
+            translateY(441.17647px);
+    }
+
+    79% {
+        transform:
+            translateY(428.57143px);
+    }
+
+    100% {
+        transform:
+            translateY(180px);
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- ==================================================
+     الصفحة الأولى
+================================================== -->
+
+<div id="page1">
+
+    <div class="container">
+
+
+        <!-- الصور -->
+
+        <div class="slider-wrapper">
+
+            <button
+                class="arrow-btn prev-btn"
+                id="prevImgBtn"
+                onclick="prevImage()">
+
+                &#10095;
+
+            </button>
+
+
+            <img
+                id="currentImage"
+                src=""
+                alt="صورة المعرض">
+
+
+            <button
+                class="arrow-btn next-btn"
+                id="nextImgBtn"
+                onclick="nextImage()">
+
+                &#10094;
+
+            </button>
+
+        </div>
+
+
+
+        <!-- الفيديو والأغنية -->
+
+        <div class="media-container">
+
+
+            <video
+                id="cuteVideo"
+                autoplay
+                loop
+                muted
+                playsinline
+                style="
+                    max-height:120px;
+                    display:block;
+                    margin:0 auto 10px;
+                ">
+
+                <source
+                    src="cute love gif.mp4"
+                    type="video/mp4">
+
+            </video>
+
+
+            <audio
+                id="bgMusic"
+                controls
+                loop>
+
+                <source
+                    src="song.mp3"
+                    type="audio/mpeg">
+
+            </audio>
+
+        </div>
+
+
+
+        <!-- النهاية -->
+
+        <div
+            class="final-section"
+            id="finalSection">
+
+            <h3>
+                كلتي كل يوم اريد وكل يوم اطور اكثر !! 
+            </h3>
+
+            <p>
+                من شخص !
+            </p>
+
+
+            <button
+                class="next-page-btn"
+                onclick="goToPage2()">
+
+                بأصبعج الناعم دوسي اهنا
+
+            </button>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+
+<!-- ==================================================
+     الصفحة الثانية
+================================================== -->
+
+<div id="page2">
+
+
+    <!-- الكلمات المتحركة -->
+
+    <div id="ui"></div>
+
+
+</div>
+
+
+
+<script>
+
+/* ==================================================
+   الصفحة الأولى — معرض الصور
+================================================== */
+
+
+const images = [
+
+    '1.jpg',
+    '2.jpg',
+    '3.jpg',
+    '4.jpg',
+    '5.jpg',
+    '6.jpg',
+    '7.jpg',
+    '8.jpg'
+
+];
+
+
+let currentIndex = 0;
+
+
+const imgElement =
+    document.getElementById(
+        'currentImage'
+    );
+
+
+const nextBtn =
+    document.getElementById(
+        'nextImgBtn'
+    );
+
+
+const prevBtn =
+    document.getElementById(
+        'prevImgBtn'
+    );
+
+
+const finalSection =
+    document.getElementById(
+        'finalSection'
+    );
+
+
+const music =
+    document.getElementById(
+        'bgMusic'
+    );
+
+
+
+/* تشغيل الأغنية بعد أول ضغطة */
+
+window.addEventListener(
+    'click',
+    () => {
+
+        if (music.paused) {
+
+            music
+                .play()
+                .catch(() => {});
+
+        }
+
+    },
+    { once: true }
+);
+
+
+
+/* تحديث الصورة */
+
+function updateGallery() {
+
+    imgElement.src =
+        images[currentIndex];
+
+
+    /* زر السابق */
+
+    if (currentIndex === 0) {
+
+        prevBtn.style.display =
+            'none';
+
+    } else {
+
+        prevBtn.style.display =
+            'flex';
+
+    }
+
+
+    /* زر التالي */
+
+    if (
+        currentIndex ===
+        images.length - 1
+    ) {
+
+        nextBtn.style.display =
+            'none';
+
+        finalSection.style.display =
+            'block';
+
+    } else {
+
+        nextBtn.style.display =
+            'flex';
+
+        finalSection.style.display =
+            'none';
+
+    }
+
+}
+
+
+
+/* الصورة التالية */
+
+function nextImage() {
+
+    if (
+        currentIndex <
+        images.length - 1
+    ) {
+
+        currentIndex++;
+
+        updateGallery();
+
+    }
+
+}
+
+
+
+/* الصورة السابقة */
+
+function prevImage() {
+
+    if (currentIndex > 0) {
+
+        currentIndex--;
+
+        updateGallery();
+
+    }
+
+}
+
+
+
+/* ==================================================
+   الانتقال للصفحة الثانية
+================================================== */
+
+function goToPage2() {
+
+    /* إيقاف الأغنية */
+
+    music.pause();
+
+
+    /* إخفاء الصفحة الأولى */
+
+    document.getElementById(
+        'page1'
+    ).style.display =
+        'none';
+
+
+    /* إظهار الصفحة الثانية */
+
+    document.getElementById(
+        'page2'
+    ).style.display =
+        'block';
+
+
+    /* تشغيل الكلمات */
+
+    createLoveWords();
+
+}
+
+
+
+/* ==================================================
+   إنشاء 100 كلمة متحركة
+================================================== */
+
+function createLoveWords() {
+
+    const N = 100;
+
+    const ui =
+        document.getElementById(
+            'ui'
+        );
+
+
+    /* حتى لا تتكرر */
+
+    if (ui.children.length > 0) {
+        return;
+    }
+
+
+    for (
+        let i = 1;
+        i <= N;
+        i++
+    ) {
+
+        const love =
+            document.createElement(
+                'div'
+            );
+
+
+        love.className =
+            'love';
+
+
+        love.style.setProperty(
+            '--i',
+            i
+        );
+
+
+        const h =
+            document.createElement(
+                'div'
+            );
+
+
+        h.className =
+            'love_horizontal';
+
+
+        const v =
+            document.createElement(
+                'div'
+            );
+
+
+        v.className =
+            'love_vertical';
+
+
+        const word =
+            document.createElement(
+                'div'
+            );
+
+
+        word.className =
+            'love_word';
+
+
+        word.textContent =
+            'I love you';
+
+
+        v.appendChild(word);
+
+        h.appendChild(v);
+
+        love.appendChild(h);
+
+        ui.appendChild(love);
+
+    }
+
+}
+
+
+
+/* تشغيل أول صورة */
+
+updateGallery();
+
+</script>
+
+
+</body>
+</html>
